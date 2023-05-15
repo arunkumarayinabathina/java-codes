@@ -1,0 +1,56 @@
+import java.util.Scanner;
+public class binary
+{
+    private int[] array;
+    public binary(int[] array)
+    {
+        this.array=array;
+    }
+    public int search(int target)
+    {
+        int left=0;
+        int right=array.length-1;
+        while(left<=right)
+        {
+           int mid=((left+right)/2);
+           if(array[mid]==target)
+           {
+            return mid;
+           }
+           else if(array[mid]<target)
+           {
+              left=mid+1;
+           }
+           else
+           {
+                right=mid-1;
+           }
+        }
+        return -1;
+    }
+    public static void main(String[] args)
+    {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter size of array:");//take the array size 
+         int size=s.nextInt();
+        int[] numbers=new int[size];
+        System.out.println("Enter array of numbers : ");//enter numbers to  search
+        int i=0;
+        for(i=0;i<=size-1;i++)//array index starts at 0 take size-1
+        {
+        numbers[i]=s.nextInt();
+        }
+        System.out.println("Enter the target value : ");//target
+        int target=s.nextInt();
+        binary bs=new binary(numbers);
+        int index=bs.search(target);
+        if(index!=-1)
+        {
+          System.out.println("The elenment"+target+"was found at index"+index);
+        }
+        else
+        {
+          System.out.println("The Element "+target+"was not found in the list");
+        }
+    }
+}

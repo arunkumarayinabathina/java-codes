@@ -1,0 +1,43 @@
+import java.util.Scanner;
+class Linear
+{
+   public int Lin(int arr[],int n,int x)
+   {
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]==x)
+        {
+          return i;     
+        }
+    }
+    return -1;
+   }
+}
+public class LinearSearch
+{
+    public static void main(String[] args)
+    {
+        Scanner s=new Scanner(System.in);
+        int n=0;
+        System.out.println("Enter the size of array:");
+        n=s.nextInt();
+        System.out.println("Enter the elements for array:");
+        int[] array=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            array[i]=s.nextInt();
+        }
+        System.out.println("Enter Element to Search:");
+        int x=s.nextInt();
+        Linear obj=new Linear();
+        int index=obj.Lin(array,n,x);
+        if(index==-1)
+        {
+            System.out.println("Element not found");
+        }
+        else
+        {
+            System.out.println("Element found at "+index+"index");
+        }
+    }
+}
